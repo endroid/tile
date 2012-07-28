@@ -58,6 +58,21 @@ class Tile
      */
     public function render($filename = null)
     {
+        $this->create();
+
+        if ($filename === null) {
+            $this->image->show('png');
+            die;
+        } else {
+            $this->image->save($filename);
+        }
+    }
+
+    /**
+     *
+     */
+    public function create()
+    {
         $imagine = new Imagine();
 
         $this->image = $imagine->open(dirname(__FILE__).'/../../../assets/background.jpg');
@@ -66,13 +81,6 @@ class Tile
         if ($this->size != $this->image->getSize()->getHeight()) {
             $box = new Box($this->size, $this->size);
             $this->image->resize($box);
-        }
-
-        if ($filename === null) {
-            $this->image->show('png');
-            die;
-        } else {
-            $this->image->save($filename);
         }
     }
 
