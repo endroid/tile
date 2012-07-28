@@ -1,0 +1,23 @@
+{
+    "name": "endroid/tile",
+    "description": "Endroid Tile",
+    "keywords": ["endroid", "tile"],
+    "homepage": "https://github.com/endroid/tile",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jeroen van den Enden",
+            "email": "info@endroid.nl",
+            "homepage": "http://endroid.nl/"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "imagine/Imagine": "dev-master"
+    },
+    "autoload": {
+        "psr-0": { "Endroid": "src/" }
+    },
+    "minimum-stability": "dev"
+}
