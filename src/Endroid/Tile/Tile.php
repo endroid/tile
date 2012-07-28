@@ -16,6 +16,11 @@ class Tile
     protected $text = '';
 
     /**
+     * @var int
+     */
+    protected $size = 414;
+
+    /**
      * @var null
      */
     protected $image = null;
@@ -58,6 +63,11 @@ class Tile
         $this->image = $imagine->open(dirname(__FILE__).'/../../../assets/background.jpg');
         $this->renderText();
 
+        if ($this->size != $this->image->getSize()->getHeight()) {
+            $box = new Box($this->size, $this->size);
+            $this->image->resize($box);
+        }
+
         if ($filename === null) {
             $this->image->show('png');
             die;
@@ -68,13 +78,13 @@ class Tile
 
     public function renderText()
     {
-        $font = new Font(dirname(__FILE__).'/../../../assets/trebuchet_bi.ttf', 24, new Color('000'));
+        $font = new Font(dirname(__FILE__).'/../../../assets/trebuchet_bi.ttf', 24, new Color('005'));
 
-        $blocks = explode(';', $this->text);
+        $blocks = explode('__', $this->text);
 
         $wordWidths = array();
         foreach ($blocks as $key => $block) {
-            $blocks[$key] = preg_split('#[^a-z0-9,\.]#i', trim($block));
+            $blocks[$key] = preg_split('#[^a-z0-9,\.-]#i', trim($block));
             foreach ($blocks[$key] as $word) {
                 $wordWidths[] = $font->box($word)->getWidth();
             }

@@ -2,7 +2,7 @@
 
 <phpunit bootstrap="./tests/bootstrap.php" colors="true">
     <testsuites>
-        <testsuite name="Tile Generator Test Suite">
+        <testsuite name="Tile Test Suite">
             <directory suffix="Test.php">./tests/Endroid/</directory>
         </testsuite>
     </testsuites>
