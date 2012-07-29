@@ -101,7 +101,7 @@ class Tile
         $lineHeight = 40;
         $maxRatio = 0;
         $result = array();
-        $space = $font->box('-')->getWidth();
+        $space = $font->box(' ')->getWidth();
         $stepWidth = 25;
         for ($maxWidth = floor(max($wordWidths) / $stepWidth) * $stepWidth; $maxWidth <= 375; $maxWidth += $stepWidth) {
             $wordIndex = 0;
