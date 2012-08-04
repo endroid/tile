@@ -71,11 +71,11 @@ class Tile
     /**
      *
      */
-    public function __toString()
+    public function get($format = 'png')
     {
         $this->create();
 
-        return (string) $this->image;
+        return $this->image->get($format);
     }
 
     /**
