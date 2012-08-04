@@ -71,6 +71,16 @@ class Tile
     /**
      *
      */
+    public function __toString()
+    {
+        $this->create();
+
+        return (string) $this->image;
+    }
+
+    /**
+     *
+     */
     public function create()
     {
         $imagine = new Imagine();
