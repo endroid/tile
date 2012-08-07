@@ -108,7 +108,7 @@ class Tile
             }
         }
 
-        $lineHeight = 40;
+        $lineHeight = 45;
         $maxRatio = 0;
         $result = array();
         $space = $font->box('-')->getWidth();
@@ -145,7 +145,8 @@ class Tile
         $y = $this->image->getSize()->getHeight() / 2 - $lineHeight * (count($result) / 2);
         foreach ($result as $line) {
             $box = $font->box(trim($line));
-            $this->image->draw()->text($line, $font, new Point($this->image->getSize()->getWidth() / 2 - $box->getWidth() / 2, $y));
+            $boxHeight = $box->getHeight();
+            $this->image->draw()->text($line, $font, new Point($this->image->getSize()->getWidth() / 2 - $box->getWidth() / 2, $y + $lineHeight - $boxHeight));
             $y += $lineHeight;
         }
     }
