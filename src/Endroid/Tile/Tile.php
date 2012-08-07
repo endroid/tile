@@ -102,7 +102,7 @@ class Tile
 
         $wordWidths = array();
         foreach ($blocks as $key => $block) {
-            $blocks[$key] = preg_split('#[^a-z0-9,\.-]#i', trim($block));
+            $blocks[$key] = preg_split('#[^a-z0-9,\'\.-]#i', trim($block));
             foreach ($blocks[$key] as $word) {
                 $wordWidths[] = $font->box($word)->getWidth();
             }
