@@ -18,7 +18,7 @@ class Tile
     /**
      * @var int
      */
-    protected $size = 414;
+    protected $size = 400;
 
     /**
      * @var null
@@ -85,7 +85,7 @@ class Tile
     {
         $imagine = new Imagine();
 
-        $this->image = $imagine->open(dirname(__FILE__).'/../../../assets/background.jpg');
+        $this->image = $imagine->open(dirname(__FILE__).'/../../../assets/background_b.png');
         $this->renderText();
 
         if ($this->size != $this->image->getSize()->getHeight()) {
@@ -142,7 +142,7 @@ class Tile
             }
         }
 
-        $y = $this->image->getSize()->getHeight() / 2 - $lineHeight * (count($result) / 2);
+        $y = $this->image->getSize()->getHeight() / 2 - $lineHeight * (count($result) / 2) - 10;
         foreach ($result as $line) {
             $box = $font->box(trim($line));
             $boxHeight = $box->getHeight();
