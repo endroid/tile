@@ -1,6 +1,8 @@
 Endroid Tile
 ============
 
+*By [endroid](http://endroid.nl/)*
+
 [![Build Status](https://secure.travis-ci.org/endroid/Tile.png)](http://travis-ci.org/endroid/Tile)
 
 Tile helps you generate images containing a typically Delft blue tile background and a saying.
@@ -13,3 +15,8 @@ $tile->setText("Life is too short to be generating tiles");
 $tile->setSize(300);
 $tile->render();
 ```
+
+## License
+
+This bundle is under the MIT license. For the full copyright and license information, please view the LICENSE file that
+was distributed with this source code.
