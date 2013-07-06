@@ -4,6 +4,8 @@ Endroid Tile
 *By [endroid](http://endroid.nl/)*
 
 [![Build Status](https://secure.travis-ci.org/endroid/Tile.png)](http://travis-ci.org/endroid/Tile)
+[![Latest Stable Version](https://poser.pugx.org/endroid/tile/v/stable.png)](https://packagist.org/packages/endroid/tile)
+[![Total Downloads](https://poser.pugx.org/endroid/tile/downloads.png)](https://packagist.org/packages/endroid/tile)
 
 Tile helps you generate images containing a typically Delft blue tile background and a saying.
 
