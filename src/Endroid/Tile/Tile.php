@@ -152,7 +152,6 @@ class Tile
         $y = $this->image->getSize()->getHeight() / 2 - $lineHeight * (count($result) / 2) + 4;
         foreach ($result as $line) {
             $box = $font->box(trim($line));
-            $boxHeight = $box->getHeight();
             $this->image->draw()->text(trim($line), $font, new Point($this->image->getSize()->getWidth() / 2 - $box->getWidth() / 2, $y));
             $y += $lineHeight;
         }
