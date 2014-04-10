@@ -20,6 +20,10 @@ $tile->render();
 
 ![Tile](http://endroid.nl/tile/Life_is_too_short_to_be_generating_tiles.png)
 
+## Symfony
+
+You can use [`EndroidTileBundle`](https://github.com/endroid/EndroidTileBundle) to enable this service in your Symfony application.
+
 ## License
 
 This bundle is under the MIT license. For the full copyright and license information, please view the LICENSE file that
