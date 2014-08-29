@@ -14,7 +14,10 @@ Tile helps you generate images containing a typically Delft blue tile background
 ```php
 <?php
 
-$tile = new Endroid\Tile\Tile();
+use Endroid\Tile\Tile;
+
+$tile = new Tile();
+$this->setBackground(Tile::BACKGROUND_C);
 $tile->setText("Life is too short to be generating tiles");
 $tile->setSize(300);
 $tile->render();

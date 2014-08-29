@@ -19,6 +19,26 @@ use Imagine\Image\Point;
 class Tile
 {
     /**
+     * @const string
+     */
+    const BACKGROUND_A = 'a';
+
+    /**
+     * @const string
+     */
+    const BACKGROUND_B = 'b';
+
+    /**
+     * @const string
+     */
+    const BACKGROUND_C = 'c';
+
+    /**
+     * @var string
+     */
+    protected $background = self::BACKGROUND_B;
+
+    /**
      * @var string
      */
     protected $text = '';
@@ -34,6 +54,31 @@ class Tile
     protected $image = null;
 
     /**
+     * Sets the background.
+     *
+     * @param $background
+     * @return Tile
+     */
+    public function setBackground($background)
+    {
+        $this->background = $background;
+
+        return $this;
+    }
+
+    /**
+     * Returns the background.
+     *
+     * @return int
+     */
+    public function getBackground()
+    {
+        return $this->background;
+    }
+
+    /**
+     * Sets the text.
+     *
      * @param $text
      * @return Tile
      */
@@ -45,6 +90,18 @@ class Tile
     }
 
     /**
+     * Returns the text.
+     *
+     * @return string
+     */
+    public function getText()
+    {
+        return $this->text;
+    }
+
+    /**
+     * Sets the size.
+     *
      * @param $size
      * @return Tile
      */
@@ -53,6 +110,16 @@ class Tile
         $this->size = $size;
 
         return $this;
+    }
+
+    /**
+     * Returns the size.
+     *
+     * @return int
+     */
+    public function getSize()
+    {
+        return $this->size;
     }
 
     /**
@@ -95,7 +162,7 @@ class Tile
     {
         $imagine = new Imagine();
 
-        $this->image = $imagine->open(dirname(__FILE__).'/../../../assets/background_b.png');
+        $this->image = $imagine->open(dirname(__FILE__).'/../../../assets/background_'.$this->background.'.png');
         $this->renderText();
 
         if ($this->size != $this->image->getSize()->getHeight()) {
