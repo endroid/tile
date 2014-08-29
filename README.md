@@ -3,9 +3,11 @@ Endroid Tile
 
 *By [endroid](http://endroid.nl/)*
 
-[![Build Status](https://secure.travis-ci.org/endroid/Tile.png)](http://travis-ci.org/endroid/Tile)
-[![Latest Stable Version](https://poser.pugx.org/endroid/tile/v/stable.png)](https://packagist.org/packages/endroid/tile)
-[![Total Downloads](https://poser.pugx.org/endroid/tile/downloads.png)](https://packagist.org/packages/endroid/tile)
+[![Latest Stable Version](http://img.shields.io/packagist/v/endroid/tile.svg)](https://packagist.org/packages/endroid/tile)
+[![Build Status](http://img.shields.io/travis/endroid/Tile.svg)](http://travis-ci.org/endroid/Tile)
+[![Total Downloads](http://img.shields.io/packagist/dt/endroid/tile.svg)](https://packagist.org/packages/endroid/tile)
+[![License](http://img.shields.io/packagist/l/endroid/tile.svg)](https://packagist.org/packages/endroid/tile)
+[![PayPayl donate button](http://img.shields.io/badge/paypal-donate-orange.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=RGH86QN825TWN "Keep me off the streets")
 
 Tile helps you generate images containing a typically Delft blue tile background and a saying.
 
@@ -18,7 +20,7 @@ $tile->setSize(300);
 $tile->render();
 ```
 
-![Tile](http://endroid.nl/tile/Life_is_too_short_to_be_generating_tiles.png)
+![Tile](http://endroid.nl/tile/Life%20is%20too%20short%20to%20be%20generating%20tiles.png)
 
 ## Symfony
 

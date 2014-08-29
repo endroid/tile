@@ -10,9 +10,10 @@
 namespace Endroid\Tile;
 
 use Imagine\Gd\Font;
+use Imagine\Gd\Image;
 use Imagine\Gd\Imagine;
 use Imagine\Image\Box;
-use Imagine\Image\Color;
+use Imagine\Image\Palette\RGB;
 use Imagine\Image\Point;
 
 class Tile
@@ -28,7 +29,7 @@ class Tile
     protected $size = 400;
 
     /**
-     * @var null
+     * @var Image
      */
     protected $image = null;
 
@@ -39,6 +40,7 @@ class Tile
     public function setText($text)
     {
         $this->text = $text;
+
         return $this;
     }
 
@@ -49,6 +51,7 @@ class Tile
     public function setSize($size)
     {
         $this->size = $size;
+
         return $this;
     }
 
@@ -61,7 +64,7 @@ class Tile
     }
 
     /**
-     *
+     * Renders the image to output or to the given filename.
      */
     public function render($filename = null)
     {
@@ -76,7 +79,7 @@ class Tile
     }
 
     /**
-     *
+     * Returns the image resource in the given format.
      */
     public function get($format = 'png')
     {
@@ -86,7 +89,7 @@ class Tile
     }
 
     /**
-     *
+     * Creates the image.
      */
     public function create()
     {
@@ -101,9 +104,14 @@ class Tile
         }
     }
 
+    /**
+     * Adds the text to the image.
+     */
     public function renderText()
     {
-        $font = new Font(dirname(__FILE__).'/../../../assets/trebuchet_bi.ttf', 24, new Color('005'));
+        $palette = new RGB();
+        $color = $palette->color('#005', 100);
+        $font = new Font(dirname(__FILE__).'/../../../assets/trebuchet_bi.ttf', 24, $color);
 
         $blocks = explode('__', $this->text);
 
