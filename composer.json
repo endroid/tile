@@ -14,7 +14,7 @@
     ],
     "require": {
         "php": ">=5.3.0",
-        "imagine/Imagine": "~0.3"
+        "imagine/imagine": "~0.6"
     },
     "autoload": {
         "psr-0": { "Endroid": "src/" }
