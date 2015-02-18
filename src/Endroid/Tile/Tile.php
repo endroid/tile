@@ -57,6 +57,7 @@ class Tile
      * Sets the background.
      *
      * @param $background
+     *
      * @return Tile
      */
     public function setBackground($background)
@@ -80,6 +81,7 @@ class Tile
      * Sets the text.
      *
      * @param $text
+     *
      * @return Tile
      */
     public function setText($text)
@@ -103,6 +105,7 @@ class Tile
      * Sets the size.
      *
      * @param $size
+     *
      * @return Tile
      */
     public function setSize($size)
