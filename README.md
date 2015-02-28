@@ -11,6 +11,16 @@ Endroid Tile
 
 Tile helps you generate images containing a typically Delft blue tile background and a saying.
 
+## Installation
+
+Use [Composer](https://getcomposer.org/) to install the library.
+
+``` bash
+$ composer require endroid/tile
+```
+
+## Usage
+
 ```php
 <?php
 
