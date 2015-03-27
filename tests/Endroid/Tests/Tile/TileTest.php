@@ -16,7 +16,7 @@ class TileTest extends \PHPUnit_Framework_TestCase
     public function testCreateTile()
     {
         $tile = new Tile();
-        $tile->setText("Life is too short to be generating tiles");
+        $tile->setText('Life is too short to be generating tiles');
         $tile->setSize(300);
         $tile->create();
 
