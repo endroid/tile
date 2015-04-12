@@ -17,7 +17,9 @@
         "imagine/imagine": "~0.6"
     },
     "autoload": {
-        "psr-0": { "Endroid": "src/" }
+        "psr-4": {
+            "Endroid\\": "src/Endroid/"
+        }
     },
     "extra": {
         "branch-alias": {
