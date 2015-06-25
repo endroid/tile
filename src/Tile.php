@@ -165,7 +165,7 @@ class Tile
     {
         $imagine = new Imagine();
 
-        $this->image = $imagine->open(dirname(__FILE__).'/../../../assets/background_'.$this->background.'.png');
+        $this->image = $imagine->open(dirname(__FILE__).'/../assets/background_'.$this->background.'.png');
         $this->renderText();
 
         if ($this->size != $this->image->getSize()->getHeight()) {
@@ -181,7 +181,7 @@ class Tile
     {
         $palette = new RGB();
         $color = $palette->color('#005', 100);
-        $font = new Font(dirname(__FILE__).'/../../../assets/trebuchet_bi.ttf', 24, $color);
+        $font = new Font(dirname(__FILE__).'/../assets/trebuchet_bi.ttf', 24, $color);
 
         $blocks = explode('__', $this->text);
 
@@ -215,7 +215,7 @@ class Tile
                     if ($lineWidth - $space > $maxLineWidth) {
                         $maxLineWidth = $lineWidth - $space;
                     }
-                    $wordIndex++;
+                    ++$wordIndex;
                 }
             }
             $min = min(count($lines) * $lineHeight, $maxLineWidth);
