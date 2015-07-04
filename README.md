@@ -40,7 +40,7 @@ You can use [`EndroidTileBundle`](https://github.com/endroid/EndroidTileBundle) 
 
 ## Versioning
 
-Semantic versioning ([semver](http://semver.org/)) is applied.
+Semantic versioning ([semver](http://semver.org/)) is applied as much as possible.
 
 ## License
 
