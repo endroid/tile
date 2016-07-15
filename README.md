@@ -6,6 +6,7 @@ Tile
 [![Latest Stable Version](http://img.shields.io/packagist/v/endroid/tile.svg)](https://packagist.org/packages/endroid/tile)
 [![Build Status](http://img.shields.io/travis/endroid/Tile.svg)](http://travis-ci.org/endroid/Tile)
 [![Total Downloads](http://img.shields.io/packagist/dt/endroid/tile.svg)](https://packagist.org/packages/endroid/tile)
+[![Monthly Downloads](http://img.shields.io/packagist/dm/endroid/tile.svg)](https://packagist.org/packages/endroid/tile)
 [![License](http://img.shields.io/packagist/l/endroid/tile.svg)](https://packagist.org/packages/endroid/tile)
 
 This library helps you generate images containing a typically Delft blue tile background and a saying.
@@ -40,9 +41,9 @@ You can use [`EndroidTileBundle`](https://github.com/endroid/EndroidTileBundle) 
 
 ## Versioning
 
-Version numbers follow the MAJOR.MINOR.PATCH scheme. Backwards compatible
-changes will be kept to a minimum but be aware that these can occur. Lock
-your dependencies for production and test your code when upgrading.
+Version numbers follow the MAJOR.MINOR.PATCH scheme. Backwards compatibility
+breaking changes will be kept to a minimum but be aware that these can occur.
+Lock your dependencies for production and test your code when upgrading.
 
 ## License
 
