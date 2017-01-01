@@ -185,7 +185,7 @@ class Tile
 
         $blocks = explode('__', $this->text);
 
-        $wordWidths = array();
+        $wordWidths = [];
         foreach ($blocks as $key => $block) {
             $blocks[$key] = preg_split('#[^a-z0-9,:\'\.-]#i', trim($block));
             foreach ($blocks[$key] as $word) {
@@ -195,12 +195,12 @@ class Tile
 
         $lineHeight = 45;
         $maxRatio = 0;
-        $result = array();
+        $result = [];
         $space = $font->box('-')->getWidth();
         $stepWidth = 25;
         for ($maxWidth = floor(max($wordWidths) / $stepWidth) * $stepWidth; $maxWidth <= 375; $maxWidth += $stepWidth) {
             $wordIndex = 0;
-            $lines = array();
+            $lines = [];
             $maxLineWidth = 0;
             foreach ($blocks as $block) {
                 $lines[] = '';

@@ -34,9 +34,9 @@ class TileExtension extends Twig_Extension implements ContainerAwareInterface
      */
     public function getFunctions()
     {
-        return array(
-            new Twig_SimpleFunction('tile_url', array($this, 'tileUrlFunction')),
-        );
+        return [
+            new Twig_SimpleFunction('tile_url', [$this, 'tileUrlFunction']),
+        ];
     }
 
     /**
@@ -50,10 +50,10 @@ class TileExtension extends Twig_Extension implements ContainerAwareInterface
     public function tileUrlFunction($text, $extension = 'png')
     {
         $router = $this->container->get('router');
-        $url = $router->generate('endroid_tile', array(
+        $url = $router->generate('endroid_tile', [
             'text' => $text,
             'extension' => $extension,
-        ));
+        ]);
 
         return $url;
     }

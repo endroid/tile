@@ -27,10 +27,10 @@ class TileController extends Controller
         if (strpos($text, ' ') !== false) {
             $text = str_replace(' ', '_', $text);
 
-            return $this->redirect($this->generateUrl('endroid_tile', array(
+            return $this->redirect($this->generateUrl('endroid_tile', [
                 'text' => $text,
                 'extension' => $extension,
-            )));
+            ]));
         }
 
         $tile = new Tile();
@@ -42,6 +42,6 @@ class TileController extends Controller
             $mime_type = 'image/jpeg';
         }
 
-        return new Response($tile, 200, array('Content-Type' => $mime_type));
+        return new Response($tile, 200, ['Content-Type' => $mime_type]);
     }
 }
