@@ -1,7 +1,7 @@
 {
     "name": "endroid/tile",
     "description": "Endroid Tile",
-    "keywords": ["endroid", "tile", "bundle", "symfony"],
+    "keywords": ["endroid", "delft", "blue", "tile", "bundle", "symfony"],
     "homepage": "https://github.com/endroid/Tile",
     "type": "library",
     "license": "MIT",

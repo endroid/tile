@@ -9,7 +9,7 @@ Tile
 [![Monthly Downloads](http://img.shields.io/packagist/dm/endroid/tile.svg)](https://packagist.org/packages/endroid/tile)
 [![License](http://img.shields.io/packagist/l/endroid/tile.svg)](https://packagist.org/packages/endroid/tile)
 
-This library helps you generate images containing a typically Delft blue tile background and a saying.
+This library helps you generate images containing a typically Delft blue tile with a saying.
 
 ## Installation
 
