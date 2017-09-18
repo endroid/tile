@@ -20,7 +20,7 @@ class AppKernel extends Kernel
         $bundles = [
             new Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
-            new Endroid\Tile\Bundle\EndroidTileBundle(),
+            new Endroid\Tile\Bundle\TileBundle\EndroidTileBundle(),
         ];
 
         return $bundles;

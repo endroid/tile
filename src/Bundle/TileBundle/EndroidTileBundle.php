@@ -7,7 +7,7 @@
  * with this source code in the file LICENSE.
  */
 
-namespace Endroid\Tile\Bundle;
+namespace Endroid\Tile\Bundle\TileBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 

@@ -7,7 +7,7 @@
  * with this source code in the file LICENSE.
  */
 
-namespace Endroid\Tile\Bundle\Twig\Extension;
+namespace Endroid\Tile\Bundle\TileBundle\Twig\Extension;
 
 use Twig_Extension;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;

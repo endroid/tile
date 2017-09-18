@@ -3,7 +3,7 @@
     "description": "Endroid Tile",
     "keywords": ["endroid", "delft", "blue", "tile", "bundle", "symfony"],
     "homepage": "https://github.com/endroid/Tile",
-    "type": "library",
+    "type": "symfony-bundle",
     "license": "MIT",
     "authors": [
         {

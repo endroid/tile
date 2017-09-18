@@ -45,7 +45,7 @@ public function registerBundles()
 {
     $bundles = [
         // ...
-        new Endroid\Tile\Bundle\EndroidTileBundle(),
+        new Endroid\Tile\Bundle\TileBundle\EndroidTileBundle(),
     ];
 }
 ```
