@@ -24,7 +24,7 @@ class TileController extends Controller
      */
     public function generateAction($text, $extension)
     {
-        if (strpos($text, ' ') !== false) {
+        if (false !== strpos($text, ' ')) {
             $text = str_replace(' ', '_', $text);
 
             return $this->redirect($this->generateUrl('endroid_tile', [
@@ -38,7 +38,7 @@ class TileController extends Controller
         $tile = $tile->get($extension);
 
         $mime_type = 'image/'.$extension;
-        if ($extension == 'jpg') {
+        if ('jpg' == $extension) {
             $mime_type = 'image/jpeg';
         }
 

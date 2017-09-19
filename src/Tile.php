@@ -140,7 +140,7 @@ class Tile
     {
         $this->create();
 
-        if ($filename === null) {
+        if (null === $filename) {
             $this->image->show('png');
             die;
         } else {
@@ -206,7 +206,7 @@ class Tile
                 $lines[] = '';
                 $lineWidth = 0;
                 foreach ($block as $word) {
-                    if ($lineWidth + $wordWidths[$wordIndex] > $maxWidth && $lines[count($lines) - 1] != '') {
+                    if ($lineWidth + $wordWidths[$wordIndex] > $maxWidth && '' != $lines[count($lines) - 1]) {
                         $lines[] = '';
                         $lineWidth = 0;
                     }
