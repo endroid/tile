@@ -2,7 +2,7 @@
     "name": "endroid/tile",
     "description": "Endroid Tile",
     "keywords": ["endroid", "delft", "blue", "tile"],
-    "homepage": "https://github.com/endroid/Tile",
+    "homepage": "https://github.com/endroid/tile",
     "type": "library",
     "license": "MIT",
     "authors": [
