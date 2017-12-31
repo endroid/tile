@@ -1,7 +1,7 @@
 Tile
 ====
 
-*By [endroid](http://endroid.nl/)*
+*By [endroid](https://endroid.nl/)*
 
 [![Latest Stable Version](http://img.shields.io/packagist/v/endroid/tile.svg)](https://packagist.org/packages/endroid/tile)
 [![Build Status](http://img.shields.io/travis/endroid/Tile.svg)](http://travis-ci.org/endroid/Tile)
@@ -32,7 +32,7 @@ $tile->render();
 
 ```
 
-![Tile](http://endroid.nl/tile/Life%20is%20too%20short%20to%20be%20generating%20tiles.png)
+![Tile](https://endroid.nl/tile/Life%20is%20too%20short%20to%20be%20generating%20tiles.png)
 
 ## Symfony integration
 
