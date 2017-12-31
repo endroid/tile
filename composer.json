@@ -1,7 +1,7 @@
 {
     "name": "endroid/tile",
     "description": "Endroid Tile",
-    "keywords": ["endroid", "delft", "blue", "tile"],
+    "keywords": ["endroid", "delft", "blue", "tile", "php"],
     "homepage": "https://github.com/endroid/tile",
     "type": "library",
     "license": "MIT",
@@ -21,15 +21,12 @@
         "symfony/framework-bundle": ">=2.3",
         "symfony/http-kernel": ">=2.3",
         "sensio/framework-extra-bundle": "^3.0",
-        "phpunit/phpunit": "^4.0|^5.0"
+        "phpunit/phpunit": "^5.7|^6.0"
     },
     "autoload": {
         "psr-4": {
             "Endroid\\Tile\\": "src/"
         }
-    },
-    "config": {
-        "bin-dir": "bin"
     },
     "extra": {
         "branch-alias": {
