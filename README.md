@@ -3,7 +3,7 @@
 *By [endroid](https://endroid.nl/)*
 
 [![Latest Stable Version](http://img.shields.io/packagist/v/endroid/tile.svg)](https://packagist.org/packages/endroid/tile)
-[![Build Status](http://img.shields.io/travis/endroid/Tile.svg)](http://travis-ci.org/endroid/Tile)
+[![Build Status](http://img.shields.io/travis/endroid/tile.svg)](http://travis-ci.org/endroid/tile)
 [![Total Downloads](http://img.shields.io/packagist/dt/endroid/tile.svg)](https://packagist.org/packages/endroid/tile)
 [![Monthly Downloads](http://img.shields.io/packagist/dm/endroid/tile.svg)](https://packagist.org/packages/endroid/tile)
 [![License](http://img.shields.io/packagist/l/endroid/tile.svg)](https://packagist.org/packages/endroid/tile)
