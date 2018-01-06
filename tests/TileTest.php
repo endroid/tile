@@ -10,8 +10,9 @@
 namespace Endroid\Tests\Tile;
 
 use Endroid\Tile\Tile;
+use PHPUnit\Framework\TestCase;
 
-class TileTest extends \PHPUnit_Framework_TestCase
+class TileTest extends TestCase
 {
     public function testCreateTile()
     {

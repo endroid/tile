@@ -7,7 +7,11 @@
  * with this source code in the file LICENSE.
  */
 
-class EndroidTileBundleTest extends PHPUnit_Framework_TestCase
+namespace Endroid\Tests\Bundle\EndroidTileBundleTest;
+
+use PHPUnit\Framework\TestCase;
+
+class EndroidTileBundleTest extends TestCase
 {
     public function testNoTestsYet()
     {
