@@ -17,10 +17,6 @@
         "imagine/imagine": "^0.6"
     },
     "require-dev": {
-        "symfony/browser-kit": ">=2.3",
-        "symfony/framework-bundle": ">=2.3",
-        "symfony/http-kernel": ">=2.3",
-        "sensio/framework-extra-bundle": "^3.0",
         "phpunit/phpunit": "^5.7|^6.0"
     },
     "autoload": {
