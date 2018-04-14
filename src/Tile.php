@@ -18,34 +18,12 @@ use Imagine\Image\Point;
 
 class Tile
 {
-    /**
-     * @const string
-     */
     const BACKGROUND_A = 'a';
-
-    /**
-     * @const string
-     */
     const BACKGROUND_B = 'b';
-
-    /**
-     * @const string
-     */
     const BACKGROUND_C = 'c';
 
-    /**
-     * @var string
-     */
     protected $background = self::BACKGROUND_B;
-
-    /**
-     * @var string
-     */
     protected $text = '';
-
-    /**
-     * @var int
-     */
     protected $size = 400;
 
     /**
@@ -53,90 +31,42 @@ class Tile
      */
     protected $image = null;
 
-    /**
-     * Sets the background.
-     *
-     * @param $background
-     *
-     * @return Tile
-     */
-    public function setBackground($background)
+    public function setBackground(string $background): void
     {
         $this->background = $background;
-
-        return $this;
     }
 
-    /**
-     * Returns the background.
-     *
-     * @return int
-     */
-    public function getBackground()
+    public function getBackground(): string
     {
         return $this->background;
     }
 
-    /**
-     * Sets the text.
-     *
-     * @param $text
-     *
-     * @return Tile
-     */
-    public function setText($text)
+    public function setText(string $text): void
     {
         $this->text = $text;
-
-        return $this;
     }
 
-    /**
-     * Returns the text.
-     *
-     * @return string
-     */
-    public function getText()
+    public function getText(): string
     {
         return $this->text;
     }
 
-    /**
-     * Sets the size.
-     *
-     * @param $size
-     *
-     * @return Tile
-     */
-    public function setSize($size)
+    public function setSize(int $size): void
     {
         $this->size = $size;
-
-        return $this;
     }
 
-    /**
-     * Returns the size.
-     *
-     * @return int
-     */
-    public function getSize()
+    public function getSize(): string
     {
         return $this->size;
     }
 
-    /**
-     * @param $filename
-     */
-    public function save($filename)
+    public function save(string $filename): void
     {
         $this->render($filename);
     }
 
-    /**
-     * Renders the image to output or to the given filename.
-     */
-    public function render($filename = null)
+    public function render($filename = null): void
     {
         $this->create();
 
@@ -148,24 +78,18 @@ class Tile
         }
     }
 
-    /**
-     * Returns the image resource in the given format.
-     */
-    public function get($format = 'png')
+    public function get(string $format = 'png')
     {
         $this->create();
 
         return $this->image->get($format);
     }
 
-    /**
-     * Creates the image.
-     */
-    public function create()
+    public function create(): void
     {
         $imagine = new Imagine();
 
-        $this->image = $imagine->open(dirname(__FILE__).'/../assets/background_'.$this->background.'.png');
+        $this->image = $imagine->open(__DIR__.'/../assets/background_'.$this->background.'.png');
         $this->renderText();
 
         if ($this->size != $this->image->getSize()->getHeight()) {
@@ -174,10 +98,7 @@ class Tile
         }
     }
 
-    /**
-     * Adds the text to the image.
-     */
-    public function renderText()
+    public function renderText(): void
     {
         $palette = new RGB();
         $color = $palette->color('#005', 100);
