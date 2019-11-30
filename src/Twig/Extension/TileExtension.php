@@ -11,60 +11,33 @@ declare(strict_types=1);
 
 namespace Endroid\Tile\Twig\Extension;
 
-use Twig_Extension;
-use Symfony\Component\DependencyInjection\ContainerAwareInterface;
-use Symfony\Component\DependencyInjection\ContainerInterface;
-use Twig_SimpleFunction;
+use Symfony\Component\Routing\RouterInterface;
+use Twig\Extension\AbstractExtension;
+use Twig\TwigFunction;
 
-class TileExtension extends Twig_Extension implements ContainerAwareInterface
+class TileExtension extends AbstractExtension
 {
-    /**
-     * {@inheritdoc}
-     */
-    protected $container;
+    private $router;
 
-    /**
-     * {@inheritdoc}
-     */
-    public function setContainer(ContainerInterface $container = null)
+    public function __construct(RouterInterface $router)
     {
-        $this->container = $container;
+        $this->router = $router;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getFunctions()
     {
         return [
-            new Twig_SimpleFunction('tile_url', [$this, 'tileUrlFunction']),
+            new TwigFunction('tile_url', [$this, 'tileUrlFunction']),
         ];
     }
 
-    /**
-     * Creates the QR code URL corresponding to the given message and extension.
-     *
-     * @param $text
-     * @param string $extension
-     *
-     * @return mixed
-     */
-    public function tileUrlFunction($text, $extension = 'png')
+    public function tileUrlFunction(string $text, string $extension = 'png'): string
     {
-        $router = $this->container->get('router');
-        $url = $router->generate('tile', [
+        $url = $this->router->generate('tile', [
             'text' => $text,
             'extension' => $extension,
         ]);
 
         return $url;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getName()
-    {
-        return 'endroid_tile';
     }
 }

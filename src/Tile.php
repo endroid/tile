@@ -12,9 +12,9 @@ declare(strict_types=1);
 namespace Endroid\Tile;
 
 use Imagine\Gd\Font;
-use Imagine\Gd\Image;
 use Imagine\Gd\Imagine;
 use Imagine\Image\Box;
+use Imagine\Image\ImageInterface;
 use Imagine\Image\Palette\RGB;
 use Imagine\Image\Point;
 
@@ -29,9 +29,9 @@ class Tile
     protected $size = 400;
 
     /**
-     * @var Image
+     * @var ImageInterface
      */
-    protected $image = null;
+    private $image;
 
     public function setBackground(string $background): void
     {
@@ -58,7 +58,7 @@ class Tile
         $this->size = $size;
     }
 
-    public function getSize(): string
+    public function getSize(): int
     {
         return $this->size;
     }
@@ -106,13 +106,14 @@ class Tile
         $color = $palette->color('#005', 100);
         $font = new Font(dirname(__FILE__).'/../assets/trebuchet_bi.ttf', 24, $color);
 
-        $blocks = explode('__', $this->text);
+        $blocks = [];
+        $parts = explode('__', $this->text);
 
         $wordWidths = [];
-        foreach ($blocks as $key => $block) {
-            $blocks[$key] = preg_split('#[^a-z0-9,:\'\.-]#i', trim($block));
+        foreach ($parts as $key => $part) {
+            $blocks[$key] = (array) preg_split('#[^a-z0-9,:\'\.-]#i', trim(strval($part)));
             foreach ($blocks[$key] as $word) {
-                $wordWidths[] = $font->box($word)->getWidth();
+                $wordWidths[] = $font->box(strval($word))->getWidth();
             }
         }
 
@@ -133,7 +134,7 @@ class Tile
                         $lines[] = '';
                         $lineWidth = 0;
                     }
-                    $lines[count($lines) - 1] .= $word.' ';
+                    $lines[count($lines) - 1] .= strval($word).' ';
                     $lineWidth += $wordWidths[$wordIndex] + $space;
                     if ($lineWidth - $space > $maxLineWidth) {
                         $maxLineWidth = $lineWidth - $space;
@@ -153,7 +154,7 @@ class Tile
         $y = $this->image->getSize()->getHeight() / 2 - $lineHeight * (count($result) / 2) + 4;
         foreach ($result as $line) {
             $box = $font->box(trim($line));
-            $this->image->draw()->text(trim($line), $font, new Point($this->image->getSize()->getWidth() / 2 - $box->getWidth() / 2, $y));
+            $this->image->draw()->text(trim($line), $font, new Point(intval($this->image->getSize()->getWidth() / 2 - $box->getWidth() / 2), intval($y)));
             $y += $lineHeight;
         }
     }
