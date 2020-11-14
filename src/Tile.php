@@ -24,14 +24,11 @@ class Tile
     const BACKGROUND_B = 'b';
     const BACKGROUND_C = 'c';
 
-    protected $background = self::BACKGROUND_B;
-    protected $text = '';
-    protected $size = 400;
+    protected string $background = self::BACKGROUND_B;
+    protected string $text = '';
+    protected int $size = 400;
 
-    /**
-     * @var ImageInterface
-     */
-    private $image;
+    private ImageInterface $image;
 
     public function setBackground(string $background): void
     {
@@ -68,7 +65,7 @@ class Tile
         $this->render($filename);
     }
 
-    public function render($filename = null): void
+    public function render(string $filename = null): void
     {
         $this->create();
 
@@ -80,7 +77,7 @@ class Tile
         }
     }
 
-    public function get(string $format = 'png')
+    public function get(string $format = 'png'): string
     {
         $this->create();
 
