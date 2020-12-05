@@ -24,11 +24,17 @@ class Tile
     const BACKGROUND_B = 'b';
     const BACKGROUND_C = 'c';
 
-    protected string $background = self::BACKGROUND_B;
-    protected string $text = '';
-    protected int $size = 400;
+    /** @var string */
+    private $background = self::BACKGROUND_B;
 
-    private ImageInterface $image;
+    /** @var string */
+    private $text = '';
+
+    /** @var int */
+    private $size = 400;
+
+    /** @var ImageInterface */
+    private $image;
 
     public function setBackground(string $background): void
     {
