@@ -77,7 +77,7 @@ class Tile
 
         if (null === $filename) {
             $this->image->show('png');
-            die;
+            exit;
         } else {
             $this->image->save($filename);
         }
