@@ -12,9 +12,9 @@
         }
     ],
     "require": {
-        "php": "^7.3||^8.0",
+        "php": "^7.4||^8.0",
         "imagine/imagine": "^1.2.4",
-        "symfony/routing": "^3.4||^4.4||^5.0",
+        "symfony/routing": "^4.4||^5.0||^6.0",
         "twig/twig": "^2.4||^3.0"
     },
     "require-dev": {

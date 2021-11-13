@@ -20,9 +20,9 @@ use Imagine\Image\Point;
 
 class Tile
 {
-    const BACKGROUND_A = 'a';
-    const BACKGROUND_B = 'b';
-    const BACKGROUND_C = 'c';
+    public const BACKGROUND_A = 'a';
+    public const BACKGROUND_B = 'b';
+    public const BACKGROUND_C = 'c';
 
     /** @var string */
     private $background = self::BACKGROUND_B;
