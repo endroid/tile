@@ -2,13 +2,6 @@
 
 declare(strict_types=1);
 
-/*
- * (c) Jeroen van den Enden <info@endroid.nl>
- *
- * This source file is subject to the MIT license that is bundled
- * with this source code in the file LICENSE.
- */
-
 namespace Endroid\Tile;
 
 use Imagine\Gd\Font;
@@ -24,46 +17,13 @@ class Tile
     public const BACKGROUND_B = 'b';
     public const BACKGROUND_C = 'c';
 
-    /** @var string */
-    private $background = self::BACKGROUND_B;
+    private ImageInterface $image;
 
-    /** @var string */
-    private $text = '';
-
-    /** @var int */
-    private $size = 400;
-
-    /** @var ImageInterface */
-    private $image;
-
-    public function setBackground(string $background): void
-    {
-        $this->background = $background;
-    }
-
-    public function getBackground(): string
-    {
-        return $this->background;
-    }
-
-    public function setText(string $text): void
-    {
-        $this->text = $text;
-    }
-
-    public function getText(): string
-    {
-        return $this->text;
-    }
-
-    public function setSize(int $size): void
-    {
-        $this->size = $size;
-    }
-
-    public function getSize(): int
-    {
-        return $this->size;
+    public function __construct(
+        private string $text = '',
+        private int $size = 400,
+        private string $background = self::BACKGROUND_B
+    ) {
     }
 
     public function save(string $filename): void
