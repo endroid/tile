@@ -8,10 +8,10 @@ use Symfony\Component\Routing\RouterInterface;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 
-class TileExtension extends AbstractExtension
+final class TileExtension extends AbstractExtension
 {
     public function __construct(
-        private RouterInterface $router
+        private readonly RouterInterface $router
     ) {
     }
 
@@ -24,11 +24,9 @@ class TileExtension extends AbstractExtension
 
     public function tileUrlFunction(string $text, string $extension = 'png'): string
     {
-        $url = $this->router->generate('tile', [
+        return $this->router->generate('tile', [
             'text' => $text,
             'extension' => $extension,
         ]);
-
-        return $url;
     }
 }

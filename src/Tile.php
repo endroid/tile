@@ -11,18 +11,13 @@ use Imagine\Image\ImageInterface;
 use Imagine\Image\Palette\RGB;
 use Imagine\Image\Point;
 
-class Tile
+final class Tile
 {
-    public const BACKGROUND_A = 'a';
-    public const BACKGROUND_B = 'b';
-    public const BACKGROUND_C = 'c';
-
-    private ImageInterface $image;
-
     public function __construct(
-        private string $text = '',
-        private int $size = 400,
-        private string $background = self::BACKGROUND_B
+        private readonly string $text = '',
+        private readonly int $size = 400,
+        private readonly Background $background = Background::B,
+        private readonly Imagine $imagine = new Imagine()
     ) {
     }
 
@@ -33,37 +28,37 @@ class Tile
 
     public function render(string $filename = null): void
     {
-        $this->create();
+        $image = $this->create();
 
         if (null === $filename) {
-            $this->image->show('png');
+            $image->show('png');
             exit;
         } else {
-            $this->image->save($filename);
+            $image->save($filename);
         }
     }
 
     public function get(string $format = 'png'): string
     {
-        $this->create();
+        $image = $this->create();
 
-        return $this->image->get($format);
+        return $image->get($format);
     }
 
-    public function create(): void
+    public function create(): ImageInterface
     {
-        $imagine = new Imagine();
+        $image = $this->imagine->open($this->background->getPath());
+        $this->renderText($image);
 
-        $this->image = $imagine->open(__DIR__.'/../assets/background_'.$this->background.'.png');
-        $this->renderText();
-
-        if ($this->size != $this->image->getSize()->getHeight()) {
+        if ($this->size != $image->getSize()->getHeight()) {
             $box = new Box($this->size, $this->size);
-            $this->image->resize($box);
+            $image->resize($box);
         }
+
+        return $image;
     }
 
-    public function renderText(): void
+    public function renderText(ImageInterface $image): void
     {
         $palette = new RGB();
         $color = $palette->color('#005', 100);
@@ -114,10 +109,10 @@ class Tile
             }
         }
 
-        $y = $this->image->getSize()->getHeight() / 2 - $lineHeight * (count($result) / 2) + 4;
+        $y = $image->getSize()->getHeight() / 2 - $lineHeight * (count($result) / 2) + 4;
         foreach ($result as $line) {
             $box = $font->box(trim($line));
-            $this->image->draw()->text(trim($line), $font, new Point(intval($this->image->getSize()->getWidth() / 2 - $box->getWidth() / 2), intval($y)));
+            $image->draw()->text(trim($line), $font, new Point(intval($image->getSize()->getWidth() / 2 - $box->getWidth() / 2), intval($y)));
             $y += $lineHeight;
         }
     }
