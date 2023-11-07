@@ -14,7 +14,7 @@
     "require": {
         "php": "^8.1",
         "imagine/imagine": "^1.2.4",
-        "symfony/routing": "^5.4||^6.0",
+        "symfony/routing": "^5.4||^6.4||^7.0",
         "twig/twig": "^3.0"
     },
     "require-dev": {
