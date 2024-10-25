@@ -11,13 +11,13 @@ use Imagine\Image\ImageInterface;
 use Imagine\Image\Palette\RGB;
 use Imagine\Image\Point;
 
-final class Tile
+final readonly class Tile
 {
     public function __construct(
-        private readonly string $text = '',
-        private readonly int $size = 400,
-        private readonly Background $background = Background::B,
-        private readonly Imagine $imagine = new Imagine()
+        private string $text = '',
+        private int $size = 400,
+        private Background $background = Background::B,
+        private Imagine $imagine = new Imagine(),
     ) {
     }
 
@@ -26,7 +26,7 @@ final class Tile
         $this->render($filename);
     }
 
-    public function render(string $filename = null): void
+    public function render(?string $filename = null): void
     {
         $image = $this->create();
 

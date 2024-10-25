@@ -11,7 +11,7 @@ use Twig\TwigFunction;
 final class TileExtension extends AbstractExtension
 {
     public function __construct(
-        private readonly RouterInterface $router
+        private readonly RouterInterface $router,
     ) {
     }
 
