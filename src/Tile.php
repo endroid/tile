@@ -4,12 +4,11 @@ declare(strict_types=1);
 
 namespace Endroid\Tile;
 
-use Imagine\Gd\Font;
-use Imagine\Gd\Imagine;
-use Imagine\Image\Box;
-use Imagine\Image\ImageInterface;
-use Imagine\Image\Palette\RGB;
-use Imagine\Image\Point;
+use Endroid\Tile\Gd\Box;
+use Endroid\Tile\Gd\Color;
+use Endroid\Tile\Gd\Font;
+use Endroid\Tile\Gd\GdImage;
+use Endroid\Tile\Gd\Point;
 
 final readonly class Tile
 {
@@ -17,7 +16,6 @@ final readonly class Tile
         private string $text = '',
         private int $size = 400,
         private Background $background = Background::B,
-        private Imagine $imagine = new Imagine(),
     ) {
     }
 
@@ -45,12 +43,12 @@ final readonly class Tile
         return $image->get($format);
     }
 
-    public function create(): ImageInterface
+    public function create(): GdImage
     {
-        $image = $this->imagine->open($this->background->getPath());
+        $image = GdImage::open($this->background->getPath());
         $this->renderText($image);
 
-        if ($this->size != $image->getSize()->getHeight()) {
+        if ($this->size !== $image->getSize()->getHeight()) {
             $box = new Box($this->size, $this->size);
             $image->resize($box);
         }
@@ -58,10 +56,9 @@ final readonly class Tile
         return $image;
     }
 
-    public function renderText(ImageInterface $image): void
+    public function renderText(GdImage $image): void
     {
-        $palette = new RGB();
-        $color = $palette->color('#005', 100);
+        $color = new Color(0, 0, 85, 0);
         $font = new Font(dirname(__FILE__).'/../assets/trebuchet_bi.ttf', 24, $color);
 
         $blocks = [];
@@ -75,11 +72,17 @@ final readonly class Tile
             }
         }
 
-        $lineHeight = 45;
+        $fontSize = 24;
+        $lineHeight = intval($fontSize * 1.8);
         $maxRatio = 0;
         $result = [];
         $space = $font->box('-')->getWidth();
         $stepWidth = 25;
+
+        if ([] === $wordWidths) {
+            return;
+        }
+
         for ($maxWidth = floor(max($wordWidths) / $stepWidth) * $stepWidth; $maxWidth <= 375; $maxWidth += $stepWidth) {
             $wordIndex = 0;
             $lines = [];
@@ -109,11 +112,14 @@ final readonly class Tile
             }
         }
 
-        $y = $image->getSize()->getHeight() / 2 - $lineHeight * (count($result) / 2) + 4;
-        foreach ($result as $line) {
+        $totalTextHeight = count($result) * $lineHeight;
+        $startY = ($image->getSize()->getHeight() - $totalTextHeight) / 2;
+
+        foreach ($result as $index => $line) {
             $box = $font->box(trim($line));
-            $image->draw()->text(trim($line), $font, new Point(intval($image->getSize()->getWidth() / 2 - $box->getWidth() / 2), intval($y)));
-            $y += $lineHeight;
+            $x = intval($image->getSize()->getWidth() / 2 - $box->getWidth() / 2);
+            $yBaseline = intval($startY + ($index * $lineHeight) + $fontSize);
+            $image->text(trim($line), $font, new Point($x, $yBaseline));
         }
     }
 }
