@@ -12,6 +12,6 @@ enum Background: string
 
     public function getPath(): string
     {
-        return __DIR__.'/../assets/background_'.$this->value.'.png';
+        return __DIR__ . '/../assets/background_' . $this->value . '.png';
     }
 }
