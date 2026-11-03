@@ -12,9 +12,9 @@ final class TileExtension extends AbstractExtension
 {
     public function __construct(
         private readonly RouterInterface $router,
-    ) {
-    }
+    ) {}
 
+    #[\Override]
     public function getFunctions(): array
     {
         return [

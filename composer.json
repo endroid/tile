@@ -12,7 +12,7 @@
         }
     ],
     "require": {
-        "php": "^8.4",
+        "php": "^8.5",
         "ext-gd": "*",
         "symfony/routing": "^6.4||^7.4||^8.0",
         "twig/twig": "^3.0"
@@ -36,7 +36,8 @@
     "config": {
         "sort-packages": true,
         "allow-plugins": {
-            "endroid/installer": true
+            "endroid/installer": true,
+            "carthage-software/mago": true
         }
     }
 }

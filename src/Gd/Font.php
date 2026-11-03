@@ -10,8 +10,7 @@ final readonly class Font
         private string $file,
         private int $size,
         private Color $color,
-    ) {
-    }
+    ) {}
 
     public function getFile(): string
     {
@@ -30,6 +29,7 @@ final readonly class Font
 
     public function box(string $text, int $angle = 0): Box
     {
+        /** @var array{int, int, int, int, int, int, int, int}|false $bbox GD returns the four corner coordinates. */
         $bbox = imagettfbbox($this->size, $angle, $this->file, $text);
 
         if (false === $bbox) {

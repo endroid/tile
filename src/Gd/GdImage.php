@@ -23,8 +23,8 @@ final class GdImage
             throw new \RuntimeException(sprintf('Failed to load image from path: %s', $path));
         }
 
-        imagealphablending($resource, true);
-        imagesavealpha($resource, true);
+        imagealphablending($resource, enable: true);
+        imagesavealpha($resource, enable: true);
 
         return new self($resource);
     }
@@ -55,7 +55,7 @@ final class GdImage
             $color->getRed(),
             $color->getGreen(),
             $color->getBlue(),
-            $color->getAlpha()
+            $color->getAlpha(),
         );
 
         if (false === $gdColor) {
@@ -65,12 +65,12 @@ final class GdImage
         imagettftext(
             $this->resource,
             $font->getSize(),
-            0,
-            $position->getX(),
-            $position->getY(),
-            $gdColor,
-            $font->getFile(),
-            $text
+            angle: 0,
+            x: $position->getX(),
+            y: $position->getY(),
+            color: $gdColor,
+            font_filename: $font->getFile(),
+            text: $text,
         );
 
         return $this;
@@ -92,7 +92,7 @@ final class GdImage
 
     public function show(string $format = 'png'): void
     {
-        header('Content-Type: image/'.$format);
+        header('Content-Type: image/' . $format);
 
         match ($format) {
             'png' => imagepng($this->resource),
@@ -113,7 +113,7 @@ final class GdImage
             default => throw new \InvalidArgumentException(sprintf('Unsupported file extension: %s', $extension)),
         };
 
-        if (false === $result) {
+        if (!$result) {
             throw new \RuntimeException(sprintf('Failed to save image to: %s', $path));
         }
     }
